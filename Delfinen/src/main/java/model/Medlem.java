@@ -1,23 +1,27 @@
-
 package model;
 
 public class Medlem {
    int alder;
    int CPR;
-   int medlemsskab;
+   String aldersgruppe;
    String navn;
-   String hold;
-   String aktivitetsform;
+   String svømmeniveau;
+   boolean aktivtmedlemsskab;
 
-    public Medlem(int alder, int CPR, int medlemsskab, String navn, String hold, String aktivitetsform) {
+    public Medlem(int CPR, String navn, int alder, String aldersgruppe, String svømmeniveau, Boolean /*String*/ aktivtmedlemsskab) {
         this.alder = alder;
         this.CPR = CPR;
-        this.medlemsskab = medlemsskab;
+        this.aldersgruppe = aldersgruppe;
         this.navn = navn;
-        this.hold = hold;
-        this.aktivitetsform = aktivitetsform;
+        this.svømmeniveau = svømmeniveau;
+        //setAktivtmedlemsskab()
+        this.aktivtmedlemsskab = aktivtmedlemsskab;
     }
 
+    public String getAldersgruppe() {
+        return aldersgruppe;
+    }
+    
     public int getAlder() {
         return alder;
     }
@@ -34,14 +38,6 @@ public class Medlem {
         this.CPR = CPR;
     }
 
-    public int getMedlemsskab() {
-        return medlemsskab;
-    }
-
-    public void setMedlemsskab(int medlemsskab) {
-        this.medlemsskab = medlemsskab;
-    }
-
     public String getNavn() {
         return navn;
     }
@@ -50,20 +46,26 @@ public class Medlem {
         this.navn = navn;
     }
 
-    public String getHold() {
-        return hold;
+    public String getSvømmeniveau() {
+        return svømmeniveau;
     }
 
-    public void setHold(String hold) {
-        this.hold = hold;
+    public void setSvømmeniveau(String svømmeniveau) {
+        this.svømmeniveau = svømmeniveau;
     }
 
-    public String getAktivitetsform() {
-        return aktivitetsform;
+    public boolean isAktivtmedlemsskab() {
+        return aktivtmedlemsskab;
     }
 
-    public void setAktivitetsform(String aktivitetsform) {
-        this.aktivitetsform = aktivitetsform;
+    public void setAktivtmedlemsskab(boolean aktivtmedlemsskab) {
+        this.aktivtmedlemsskab = aktivtmedlemsskab;
     }
-   
+    public void setAktivtmedlemsskab(String aktivtmedlemsskab) {
+        boolean res = false;
+        if(aktivtmedlemsskab.toLowerCase().equals("ja"))
+            res = true;
+        this.aktivtmedlemsskab = res;
+    }
+    
 }
